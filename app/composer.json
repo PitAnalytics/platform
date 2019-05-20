@@ -1,0 +1,18 @@
+{
+    "require": {
+        "slim/slim": "^3.12",
+        "google/cloud-bigquery": "^1.6",
+        "wisembly/elephant.io": "^3.3",
+        "catfan/medoo": "^1.6",
+        "google/cloud-container": "^0.10.3"
+    },
+    "autoload": {
+
+        "psr-4": {
+
+            "App\\":"src"
+
+        }
+
+    }
+}
