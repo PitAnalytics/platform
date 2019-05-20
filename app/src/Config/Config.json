@@ -15,12 +15,8 @@
     },
     "google":{
 
-        "bigQuery":{
-
-            "projectId":"informe-211921",
-            "dataset":"BALANZA"
-
-        }
+        "projectId":"informe-211921",
+        "bigQuery":{"dataset":"BALANZA"}
 
     },
     "loader":{

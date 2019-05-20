@@ -1,6 +1,6 @@
 <?php
 //
-namespace App\Modules;
+namespace App\Dependencies;
 //
 use GuzzleHttp\HTTP\Client;
 use Google\Cloud\BigQuery\BigQueryClient;

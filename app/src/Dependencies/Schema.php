@@ -1,8 +1,7 @@
 <?php
 
 //mandamos llamar modulos e interfaz de esquema
-namespace App\Modules;
-use App\Interfaces\SchemaInterface;
+namespace App\Dependencies;
 
 class Schema{
 

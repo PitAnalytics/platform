@@ -1,17 +1,9 @@
 <?php
 
 namespace App\Modules;
+use App\Primitives\DatabaseConnection as Connection;
 
-class History {
-
-    private static $INSTANCE;
-    private $database;
-
-    public function __construct($database){
-
-        $this->database=$database;
-
-    }
+class History extends Connection{
 
     public function index(){
 

@@ -11,45 +11,26 @@ $app = new \Slim\App(
         ]
     ]
 );
-//
+
+
+/********************************/
+/**CONTENEDOR CON CONFIGURACION**/
+/********************************/
+
+
+//instanciamos el contenedor
 $container=$app->getContainer();
 
+//manadmos llamar configuracion
 $container['config']=function($path){
 
     return new App\Config\Config('../app/src/Config/Config.json');
 
 };
 
-//
-$container['localloader']=function ($container) {
-
-    return function ($id){
-
-        return new App\Modules\LocalLoader($id);
-
-    };
-    
-};
-
-$container['schema']=function ($container) {
-
-    return function ($path){
-
-        return new App\Modules\Schema($path);
-
-    };
-
-};
-
-$container['history']=function ($container) {
-
-    return function($database){
-
-        return new App\Modules\History($database);
-
-    };
-
-};
+/********************************/
+/****DEPENDENCIAS DE COMPOSER****/
+/********************************/
 
 $container['database']=function($container){
 
@@ -61,6 +42,10 @@ $container['database']=function($container){
 
 };
 
+/********************************/
+/*******DEPENDENCIAS PROPIAS*****/
+/********************************/
+
 $container['bigquery']=function($container){
 
     return function($config){
@@ -70,5 +55,55 @@ $container['bigquery']=function($container){
     };
 
 };
+
+$container['localloader']=function ($container) {
+
+    return function ($id){
+
+        return new App\Dependencies\LocalLoader($id);
+
+    };
+    
+};
+
+$container['schema']=function ($container) {
+
+    return function ($path){
+
+        return new App\Dependencies\Schema($path);
+
+    };
+
+};
+
+/************************************/
+/******MODULOS DE DATOS SIMPLES******/
+/************************************/
+
+$container['history']=function ($container) {
+
+    return function($database){
+
+        return new App\Modules\History($database);
+
+    };
+
+};
+
+/************************************/
+/*************SUBSISTEMAS************/
+/************************************/
+
+$container['loader']=function($container){
+
+    return function($l,$f,$h){
+
+        return App\Subsystems\Loader::INSTANCIATE($l,$f,$h);
+
+    };
+
+};
+
+
 
 ?>

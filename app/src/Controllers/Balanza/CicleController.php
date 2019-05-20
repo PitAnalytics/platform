@@ -23,7 +23,19 @@ class CicleController extends Controller{
 
         //mandamos llamar la base de datos
         $this->database=$this->container['database']($this->config->database());
+
+
         
+    }
+
+    public function index(){
+
+        $cicles =$this->cicle->index();
+
+        return $response->withJson($cicles);
+
+        echo('cool');
+
     }
 
 }
