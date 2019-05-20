@@ -17,7 +17,7 @@ class BigQuery{
 
     }
 
-    //
+    //query general con arreglo como resultado
     public function query($dml){
 
         try{
