@@ -6,7 +6,7 @@ use App\Controllers\Controller as Controller;
 
 use Psr\Container\ContainerInterface as Container;
 
-class CecosController extends Controller{
+class ImportController extends Controller{
 
     private $config;
     private $database;
@@ -23,8 +23,12 @@ class CecosController extends Controller{
 
         //mandamos llamar la base de datos
         $this->database=$this->container['database']($this->config->database());
+
+        //mandamos llamar el decorador de bigquery
+        $this->bigQuery=$this->container['bigquery'](['projectId'=>'informe-211921']);
         
     }
+
 
 }
 

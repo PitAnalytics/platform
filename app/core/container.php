@@ -61,11 +61,11 @@ $container['database']=function($container){
 
 };
 
-$container['loader']=function($container){
+$container['bigquery']=function($container){
 
-    return function($l,$s,$h){
+    return function($config){
 
-        return App\Subsystems\Loader::INSTANCIATE($l,$s,$h);
+        return new App\Dependencies\BigQuery($config);
 
     };
 
